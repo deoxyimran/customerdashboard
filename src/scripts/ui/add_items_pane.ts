@@ -41,22 +41,53 @@ class AddItemsPane {
         const itemRatingArea: HTMLInputElement = document.querySelector("#item-rating-area") as 
             HTMLInputElement;
 
-        let tracker = -1;
-
-        for (let i = 0; i <= this.itemContainer.size; i++) {
-            if (!this.itemContainer.has(i)) {
+        if (Number.isNaN(Number(itemCostArea.value))) {
+            showDialogFailed();
+        } else if (Number.isNaN(Number(itemRatingArea.value))) {
+            showDialogFailed();
+        } else if (!Number.isNaN(Number(itemNameArea.value))) {
+            showDialogFailed();
+        } else {
+            showDialogSuccess();
+            let tracker = -1;
+            for (let i = 0; i <= this.itemContainer.size; i++) {
+                if (!this.itemContainer.has(i)) {
+                    tracker = i;
+                    break;
+                }
                 tracker = i;
-                break;
             }
-            tracker = i;
+            this.itemContainer.set(tracker, new Item(
+                itemNameArea?.value, 
+                Number(itemCostArea?.value),
+                Number(itemRatingArea?.value)
+            )); 
         }
-        
-        this.itemContainer.set(tracker, new Item(
-            itemNameArea?.value, 
-            Number(itemCostArea?.value),
-            Number(itemRatingArea?.value)
-        )); 
     }
+}
+
+function showDialogSuccess() {
+    const dialog: HTMLDialogElement = document.querySelector("#dialog") as HTMLDialogElement;
+    const dialIcon: HTMLElement = document.querySelector("#dial-icon") as HTMLElement;
+    const dialText: HTMLElement = document.querySelector("#dial-text") as HTMLElement;     
+    
+    dialIcon.innerHTML = `<i class="fas fa-circle-check text-[2.3em] text-[#57e389]"></i>`;
+    dialText.innerHTML = `Succesfully added 1 item!`;
+
+    dialog.showModal();
+}
+
+function showDialogFailed() {
+    const dialog: HTMLDialogElement = document.querySelector("#dialog") as HTMLDialogElement;
+    const dialIcon: HTMLElement = document.querySelector("#dial-icon") as HTMLElement;
+    const dialText: HTMLElement = document.querySelector("#dial-text") as HTMLElement;     
+    
+    dialIcon.innerHTML = `<i class="fas fa-circle-xmark text-[2.3em] text-[#ed333b]"></i>`;
+    dialText.innerHTML = `Failed to add 1 item :(`;
+    
+    console.log(dialIcon.innerHTML);
+    
+    dialog.showModal();
 }
 
 export default AddItemsPane;

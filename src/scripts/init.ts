@@ -14,8 +14,10 @@ pane.setChild(profilePane);
 paneRoot.innerHTML = pane.getHtml(); 
 pane.attachListeners();
 
+// Event listeners for permanent elements 
 const itemsPaneBtn: HTMLElement = document.querySelector("#items-pane-btn") as HTMLElement;
 const profilePaneBtn: HTMLElement = document.querySelector("#profile-pane-btn") as HTMLElement;
+const dialBtn: HTMLElement = document.querySelector("#dial-btn") as HTMLElement;
 
 profilePaneBtn.addEventListener("click", () => {
     pane.setChild(profilePane);
@@ -32,6 +34,11 @@ itemsPaneBtn.addEventListener("click", () => {
     itemTabFocus();
     profileTabUnfocus();
 });
+
+dialBtn.addEventListener("click", () => {
+    const dialog: HTMLDialogElement = document.querySelector("#dialog") as HTMLDialogElement;
+    dialog.close();
+})
 
 profileTabFocus();
 

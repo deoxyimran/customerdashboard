@@ -11,6 +11,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">     <title>Dashboard</title>
   </head>
   <body>
+    <dialog id="dialog" class="rounded-md drop-shadow-2xl w-[350px] backdrop:bg-gray-400 backdrop:bg-opacity-25">
+      <div class="flex flex-col">
+        <div class="flex flex-row">
+          <div id="dial-icon" class="w-[50px] h-[50px] flex items-center justify-center mr-[7px]">
+          </div>
+          <div id="dial-text" class="h-[50px] flex items-center justify-center font-['Poppins'] 
+            text-[1.1em] font-[400]">
+          </div>
+        </div>
+        <div class="flex flex-row">
+          <div class="flex-grow"></div>
+          <button id="dial-btn" 
+              class="bg-blue-500 active:bg-blue-700 font-['Poppins'] font-[400] text-[0.92em] text-blue-50 w-[70px] h-[32px] mt-[20px]">
+            OK
+          </button>
+        </div>
+      </div>
+    </dialog>
     <div class="flex items-center justify-center bg-no-repeat bg-cover bg-[url('../assets/lightbluebg.jpg')] w-screen h-screen overflow-auto">
       <div class="m-auto flex flex-row rounded-md w-[800px] h-[550px] bg-slate-200 ">
         <div id="sidebar" class="flex flex-col roundbulled-l-md w-[200px] 
