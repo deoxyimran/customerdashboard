@@ -14,15 +14,16 @@ class ProfilePane {
     }
 
     public getHtml(): string {
-        return `<div class="flex-grow flex flex-col">  
+        return `<div class="flex-grow flex flex-col font-['Poppins']">  
             <div class="flex flex-row">
-                <div class="flex flex-col">
+                <div id="profile-box" class="flex flex-col border-[2px] border-rose-500 w-[400px] 
+                        h-[300px] mt-[10px] ml-[7px] pt-[22px]">
                     <div class="flex flex-row">
                         <div>Your name:</div>
-                        <div id="name-field-root">
-                            <div>${this.name}</div>
+                        <div id="name-field-root" class="flex-grow">
+                            <div class=${this.name === "nil" ? "italic" : ""}>${this.name}</div>
                         </div>
-                        <div id="name-edit-btn-root">
+                        <div id="name-edit-btn-root" class="mr-[10px]">
                             <button class="bg-transparent border-[2px] border-cyan-600 text-cyan-600
                                     w-[40px] h-[30px] rounded-md hover:bg-cyan-600 
                                     hover:text-cyan-50">
@@ -32,10 +33,10 @@ class ProfilePane {
                     </div>
                     <div class="flex flex-row">
                         <div>Your gender:</div>
-                        <div id="gender-field-root">
-                            <div>${this.gender}</div>
+                        <div id="gender-field-root" class="flex-grow">
+                            <div class=${this.name === "nil" ? "italic" : ""}>${this.gender}</div>
                         </div>
-                        <div id="gender-edit-btn-root">
+                        <div id="gender-edit-btn-root" class="mr-[10px]">
                             <button class="bg-transparent border-[2px] border-cyan-600 text-cyan-600
                                     w-[40px] h-[30px] rounded-md hover:bg-cyan-600 
                                     hover:text-cyan-50">
@@ -43,12 +44,12 @@ class ProfilePane {
                             </button>
                         </div>     
                     </div>
-                    <div class="flex flex-row">
+                    <div class="flex flex-row flex-nowrap">
                         <div>Your profession:</div>
-                        <div id="profession-field-root">
-                            <div>${this.profession}</div>
+                        <div id="profession-field-root" class="flex-grow">
+                            <div class=${this.name === "nil" ? "italic" : ""}>${this.profession}</div>
                         </div>
-                        <div id="profession-edit-btn-root">
+                        <div id="profession-edit-btn-root" class="mr-[10px]">
                             <button class="bg-transparent border-[2px] border-cyan-600 text-cyan-600
                                     w-[40px] h-[30px] rounded-md hover:bg-cyan-600 
                                     hover:text-cyan-50">
@@ -57,7 +58,9 @@ class ProfilePane {
                         </div>
                     </div>
                 </div>
-                <div class="bg-green-500 rounded-md w-[105px] h-[80px]  
+                <div class="spacer flex-grow">
+                </div>
+                <div class="bg-green-500 rounded-md w-[105px] h-[80px] mt-[10px] mr-[7px]  
                         text-green-50 flex flex-col items-center">
                     <div>Items</div>
                     <div id="item-count">${this.items.size}</div>
@@ -65,8 +68,9 @@ class ProfilePane {
             </div>   
             <div class="flex-grow">
             </div>
-            <div id="list-box" class="bg-slate-400 flex flex-col mr-[5px] ml-[5px] 
-                    mb-[20px] h-[210px] overflow-y-scroll overflow-x-hidden">
+            <div id="list-box" class="flex flex-col mr-[7px] ml-[7px] 
+                    mb-[16px] h-[210px] overflow-y-scroll overflow-x-hidden 
+                    bg-indigo-200 border-[1px] border-indigo-700">
                 ${this.listChildren()}
             </div>  
         </div>`;
@@ -96,8 +100,9 @@ class ProfilePane {
         const children: string[] = [];
         this.items.forEach((val, key) => {
             children.push(`
-                <div class="flex flex-row justify-between bg-amber-200 mt-[2px] 
-                        mr-[2px] ml-[2px]" id = ${"list-item" + key}>
+                <div class="flex-shrink-0 flex flex-row items-center justify-between bg-slate-50
+                        mt-[5px] mr-[7px] ml-[7px] h-[50px] rounded-lg drop-shadow-lg shadow-cyan-500 border-t 
+                        border-t-cyan-50" id = ${"list-item" + key}>
                     <div class="flex flex-row">
                         <div>Name: ${this.items.get(key)!.getItemName()}</div>
                         <div>Cost: ${this.items.get(key)!.getItemCost()}</div>
@@ -144,7 +149,7 @@ class ProfilePane {
             </button>
         `;
         fieldRoot.innerHTML = `
-            <textarea w-[85px] rows="1" class="resize-none"></textarea>
+            <textarea rows="1" class="resize-none w-[170px] ml-[8px]"></textarea>
         `;
 
         btnRoot.firstElementChild!.addEventListener("click", () => this.profileFinalize(btnRoot, fieldRoot));

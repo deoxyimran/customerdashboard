@@ -12,15 +12,18 @@ class AddItemsPane {
             <div class="font-['Poppins'] font-[300] text-[0.92em] mb-[2px]">
                 Item Name:
             </div>
-            <textarea class="resize-none mb-[10px] mr-[70px]" id="item-name-area" rows="1"></textarea>
+            <textarea class="resize-none mb-[10px] mr-[70px] border-blue-500 border-[1px] outline-none 
+                focus:border-[2px]" id="item-name-area" rows="1"></textarea>
             <div class="font-['Poppins'] font-[300] text-[0.92em] mb-[2px]">
                 Item Cost:
             </div>
-            <textarea class="resize-none mb-[10px] mr-[70px]" id="item-cost-area" rows="1"></textarea>
+            <textarea class="resize-none mb-[10px] mr-[70px] border-blue-500 border-[1px] outline-none 
+                focus:border-[2px]" id="item-cost-area" rows="1"></textarea>
             <div class="font-['Poppins'] font-[300] text-[0.92em] mb-[2px]">
                 Item Rating:
             </div>
-            <textarea class="resize-none mb-[15px] mr-[70px]" id="item-rating-area" rows="1"></textarea>
+            <textarea class="resize-none mb-[15px] mr-[70px] border-blue-500 border-[1px] outline-none 
+                focus:border-[2px]" id="item-rating-area" rows="1"></textarea>
             <button class="bg-blue-500 text-blue-50 font-['Poppins'] font-[400] text-[0.92em]
                     w-[93px] h-[29px] active:bg-blue-700 rounded-sm" id="save-btn">
                 Save
