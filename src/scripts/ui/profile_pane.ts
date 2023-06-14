@@ -16,7 +16,7 @@ class ProfilePane {
     public getHtml(): string {
         return `<div class="flex-grow flex flex-col font-['Poppins']">  
             <div class="flex flex-row">
-                <div id="profile-box" class="flex flex-col border-[2px] border-rose-500 w-[400px] 
+                <div id="profile-box" class="flex flex-col border-[2px] border-rose-500 w-[300px] 
                         h-[300px] mt-[10px] ml-[7px] pt-[22px]">
                     <div class="flex flex-row">
                         <div>Your name:</div>
@@ -44,8 +44,8 @@ class ProfilePane {
                             </button>
                         </div>     
                     </div>
-                    <div class="flex flex-row flex-nowrap">
-                        <div>Your profession:</div>
+                    <div class="flex flex-row flex-nowrap overflow-x-scroll">
+                        <div class="whitespace-nowrap">Your profession:</div>
                         <div id="profession-field-root" class="flex-grow">
                             <div class=${this.name === "nil" ? "italic" : ""}>${this.profession}</div>
                         </div>
@@ -60,10 +60,11 @@ class ProfilePane {
                 </div>
                 <div class="spacer flex-grow">
                 </div>
-                <div class="bg-green-500 rounded-md w-[105px] h-[80px] mt-[10px] mr-[7px]  
-                        text-green-50 flex flex-col items-center">
-                    <div>Items</div>
-                    <div id="item-count">${this.items.size}</div>
+                <div class="bg-gradient-to-r from-[#00ff80bc] from-[20%] to-[#50ccc0] rounded-md 
+                        w-[115px] h-[85px] mt-[10px] mr-[7px] text-white flex flex-col 
+                        items-center">
+                    <div class="p-[1px] text-[1.03em] font-[600]">Items</div>
+                    <div id="item-count" class="text-[1.4em] pt-[1px] font-[500] ">${this.items.size}</div>
                 </div>
             </div>   
             <div class="flex-grow">
