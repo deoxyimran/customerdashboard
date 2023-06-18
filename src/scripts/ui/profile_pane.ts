@@ -69,10 +69,11 @@ class ProfilePane {
             </div>   
             <div class="flex-grow">
             </div>
-            <div id="list-box" class="flex flex-col mr-[7px] ml-[7px] 
+            <div id="inventory" class="flex flex-col mr-[7px] ml-[7px] rounded-md 
                     mb-[16px] h-[210px] overflow-y-scroll overflow-x-hidden 
                     bg-indigo-200 border-[1px] border-indigo-700">
-                ${this.listChildren()}
+                <div class="bg-blue-500 flex flex-row justify-center">Inventory</div>
+                ${this.invChildren()}
             </div>  
         </div>`;
     }
@@ -94,23 +95,25 @@ class ProfilePane {
         professionEditBtnRoot.firstElementChild!.addEventListener("click", () => 
             this.profileEdit(professionEditBtnRoot, professionFieldRoot));   
         
-        this.listChildrenListeners();
+        this.invChildrenListeners();
     }  
     
-    private listChildren(): string {
+    private invChildren(): string {
         const children: string[] = [];
         this.items.forEach((val, key) => {
             children.push(`
                 <div class="flex-shrink-0 flex flex-row items-center justify-between bg-slate-50
                         mt-[5px] mr-[7px] ml-[7px] h-[50px] rounded-lg drop-shadow-lg shadow-cyan-500 border-t 
-                        border-t-cyan-50" id = ${"list-item" + key}>
+                        border-t-cyan-50 text-[0.84em]" id = ${"inventory-item" + key}>
                     <div class="flex flex-row">
-                        <div>Name: ${this.items.get(key)!.getItemName()}</div>
+                        <div class="ml-[10px]">Name: ${this.items.get(key)!.getItemName()}</div>
+                        <div class="w-[10px]"></div>
                         <div>Cost: ${this.items.get(key)!.getItemCost()}</div>
+                        <div class="w-[10px]"></div>
                         <div>Rating: ${this.items.get(key)!.getItemRating()}</div>
                     </div>
                     <div class="delete-btn text-blue-500 mr-[2px]">
-                        <i class="fas fa-trash-can"></i>
+                        <i class="fas fa-trash-can cursor-pointer"></i>
                     </div>
                 </div>
             `);
@@ -118,11 +121,11 @@ class ProfilePane {
         return children.join(" ");
     }
 
-    private listChildrenListeners() {
+    private invChildrenListeners() {
         const self = this;
         self.items.forEach((val, key) => {
             const deleteBtn: HTMLElement = document
-                .querySelector("#list-item" + key + " .delete-btn") as HTMLElement;    
+                .querySelector("#inventory-item" + key + " .delete-btn") as HTMLElement;    
             deleteBtn.parentElement!.addEventListener("transitionend", function transitionEnd() {
                 deleteBtn.parentElement!.removeEventListener("transitionend", transitionEnd);
                 deleteBtn.parentElement!.outerHTML = "";
