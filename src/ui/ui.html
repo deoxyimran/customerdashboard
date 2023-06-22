@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">     <title>Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&display=swap" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@500;600&display=swap" rel="stylesheet">
+    <title>Dashboard</title>
   </head>
   <body>
     <dialog id="dialog" class="rounded-md drop-shadow-2xl w-[350px] backdrop:bg-gray-400 backdrop:bg-opacity-25">
@@ -30,19 +32,21 @@
       </div>
     </dialog>
     <div class="flex items-center justify-center bg-no-repeat bg-cover bg-[url('../assets/lightbluebg.jpg')] w-screen h-screen overflow-auto">
-      <div class="m-auto flex flex-row rounded-md w-[800px] h-[550px] bg-gray-100">
+      <div class="m-auto flex flex-row rounded-md w-[800px] h-[550px] bg-gradient-to-r from-[#fbfbfb]
+          from-90% to-[#eceef2]">
         <div id="sidebar" class="flex flex-col rounded-l-md w-[200px] 
             bg-gradient-to-b from-[#240fe481] from-40% to-[#240fe4d6]">
           <span class="flex flex-row justify-center items-center mt-[5px] mb-[20px] font-['Poppins']
               text-[0.93em] italic font-[400] text-blue-100">
             Dashboard
           </span>
-          <button id="profile-pane-btn" class="flex flex-row h-[38px]">
+          <button id="profile-pane-btn" class="flex flex-row items-center
+              h-[38px]">
             <i class="fas fa-user text-[#ffa348] text-[1em] 
-              flex flex-col justify-center items-center ml-[8px] mr-[6px] w-[20px]">
+              ml-[8px] mr-[6px] w-[20px]">
             </i>
-            <div class="text-[1em] text-yellow-50 
-                font-['Poppins'] font-[400] flex flex-col justify-center leading-[0.8]">
+            <div class="text-[0.9em] text-yellow-50 
+                font-['Poppins'] font-[500] bg-slate-500 leading-[0.7em]">
               Profile
             </div>
           </button>
@@ -50,8 +54,8 @@
             <i class="fas fa-plus-circle text-[#44e4b7] text-[1em]
               flex flex-col justify-center items-center ml-[8px] mr-[6px] w-[20px]">
             </i>
-            <div class="text-[1em] text-yellow-50 
-                font-['Poppins'] font-[400] flex flex-col justify-center leading-[0.8]">
+            <div class="text-[0.9em] text-yellow-50 
+                font-['Poppins'] font-[500] flex flex-col justify-center leading-[0.8]">
               Add Items
             </div>
           </button>

@@ -9,17 +9,17 @@ class AddItemsPane {
 
     public getHtml(): string {
         return `<div class="flex flex-col ml-[10px] mt-[8px]">
-            <div class="font-['Poppins'] font-[300] text-[0.92em] mb-[2px]">
+            <div class="font-['Poppins'] font-[500] text-[0.92em] mb-[2px]">
                 Item Name:
             </div>
             <textarea class="resize-none mb-[10px] mr-[70px] border-blue-500 border-[1px] outline-none 
                 focus:border-[2px]" id="item-name-area" rows="1"></textarea>
-            <div class="font-['Poppins'] font-[300] text-[0.92em] mb-[2px]">
+            <div class="font-['Poppins'] font-[500] text-[0.92em] mb-[2px]">
                 Item Cost:
             </div>
             <textarea class="resize-none mb-[10px] mr-[70px] border-blue-500 border-[1px] outline-none 
                 focus:border-[2px]" id="item-cost-area" rows="1"></textarea>
-            <div class="font-['Poppins'] font-[300] text-[0.92em] mb-[2px]">
+            <div class="font-['Poppins'] font-[500] text-[0.92em] mb-[2px]">
                 Item Rating:
             </div>
             <textarea class="resize-none mb-[15px] mr-[70px] border-blue-500 border-[1px] outline-none 

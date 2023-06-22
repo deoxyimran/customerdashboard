@@ -4,6 +4,9 @@ import ProfilePane from "./ui/profile_pane";
 import Item from "./utils/Item";
 
 const items: Map<number, Item> = new Map();  
+// test
+//items.set(1, new Item("Hello", 5, 5));
+
 const profilePane: ProfilePane = new ProfilePane(items)
 const itemsPane: AddItemsPane = new AddItemsPane(items)
 const pane: Pane = new Pane();
