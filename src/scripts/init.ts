@@ -49,7 +49,7 @@ function profileTabFocus() {
     profilePaneBtn.classList.add(
         "bg-gradient-to-r",
         "from-[rgb(255,255,255,0.1)]",
-        "to-[rgb(255,255,255,0.44)]"
+        "to-[rgb(255,255,255,0.4)]"
     );
 }
 
@@ -57,7 +57,7 @@ function profileTabUnfocus() {
     profilePaneBtn.classList.remove(
         "bg-gradient-to-r",
         "from-[rgb(255,255,255,0.1)]",
-        "to-[rgb(255,255,255,0.44)]"
+        "to-[rgb(255,255,255,0.4)]"
     )
 }
 
@@ -65,7 +65,7 @@ function itemTabFocus() {
     itemsPaneBtn.classList.add(
         "bg-gradient-to-r",
         "from-[rgb(255,255,255,0.1)]",
-        "to-[rgb(255,255,255,0.44)]"
+        "to-[rgb(255,255,255,0.4)]"
     );
 }
 
@@ -73,9 +73,8 @@ function itemTabUnfocus() {
     itemsPaneBtn.classList.remove(
         "bg-gradient-to-r",
         "from-[rgb(255,255,255,0.1)]",
-        "to-[rgb(255,255,255,0.44)]"
+        "to-[rgb(255,255,255,0.4)]"
     );
-    console.log("Hello");
 }
 
 
