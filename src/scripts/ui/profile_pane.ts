@@ -212,9 +212,22 @@ class ProfilePane {
                 Edit
             </button>
         `;
-        this.name = (fieldRoot.firstElementChild as HTMLInputElement).value;
-        fieldRoot.innerHTML = `<div class="italic">${this.name}</div`;
-           
+        switch (fieldRoot.id) {
+            case "name-field-root":
+                this.name = (fieldRoot.firstElementChild as HTMLInputElement).value;
+                fieldRoot.innerHTML = `<div>${this.name}</div`;           
+                break;
+            case "gender-field-root":
+                this.gender = (fieldRoot.firstElementChild as HTMLInputElement).value;
+                fieldRoot.innerHTML = `<div>${this.gender}</div`;           
+                break;
+            case "profession-field-root":
+                this.profession = (fieldRoot.firstElementChild as HTMLInputElement).value;
+                fieldRoot.innerHTML = `<div>${this.profession}</div`;           
+                break;
+            default:
+                break;
+        }
         btnRoot.firstElementChild!.addEventListener("click", () => this.profileEdit(btnRoot, fieldRoot));
     }
 }

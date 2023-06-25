@@ -45,13 +45,13 @@ class AddItemsPane {
             HTMLInputElement;
 
         if (Number.isNaN(Number(itemCostArea.value))) {
-            showDialogFailed();
+            this.showDialogFailed();
         } else if (Number.isNaN(Number(itemRatingArea.value))) {
-            showDialogFailed();
+            this.showDialogFailed();
         } else if (!Number.isNaN(Number(itemNameArea.value))) {
-            showDialogFailed();
+            this.showDialogFailed();
         } else {
-            showDialogSuccess();
+            this.showDialogSuccess();
             let tracker = -1;
             for (let i = 0; i <= this.itemContainer.size; i++) {
                 if (!this.itemContainer.has(i)) {
@@ -61,36 +61,39 @@ class AddItemsPane {
                 tracker = i;
             }
             this.itemContainer.set(tracker, new Item(
-                itemNameArea?.value, 
+                itemNameArea.value, 
                 Number(itemCostArea?.value),
                 Number(itemRatingArea?.value)
             )); 
         }
+        itemNameArea.value = "";
+        itemCostArea.value = "";
+        itemRatingArea.value = "";
     }
-}
 
-function showDialogSuccess() {
-    const dialog: HTMLDialogElement = document.querySelector("#dialog") as HTMLDialogElement;
-    const dialIcon: HTMLElement = document.querySelector("#dial-icon") as HTMLElement;
-    const dialText: HTMLElement = document.querySelector("#dial-text") as HTMLElement;     
+    private showDialogSuccess() {
+        const dialog: HTMLDialogElement = document.querySelector("#dialog") as HTMLDialogElement;
+        const dialIcon: HTMLElement = document.querySelector("#dial-icon") as HTMLElement;
+        const dialText: HTMLElement = document.querySelector("#dial-text") as HTMLElement;     
+        
+        dialIcon.innerHTML = `<i class="fas fa-circle-check text-[2.3em] text-[#57e389]"></i>`;
+        dialText.innerHTML = `Succesfully added 1 item!`;
     
-    dialIcon.innerHTML = `<i class="fas fa-circle-check text-[2.3em] text-[#57e389]"></i>`;
-    dialText.innerHTML = `Succesfully added 1 item!`;
-
-    dialog.showModal();
-}
-
-function showDialogFailed() {
-    const dialog: HTMLDialogElement = document.querySelector("#dialog") as HTMLDialogElement;
-    const dialIcon: HTMLElement = document.querySelector("#dial-icon") as HTMLElement;
-    const dialText: HTMLElement = document.querySelector("#dial-text") as HTMLElement;     
+        dialog.showModal();
+    }
     
-    dialIcon.innerHTML = `<i class="fas fa-circle-xmark text-[2.3em] text-[#ed333b]"></i>`;
-    dialText.innerHTML = `Failed to add 1 item :(`;
-    
-    console.log(dialIcon.innerHTML);
-    
-    dialog.showModal();
+    private showDialogFailed() {
+        const dialog: HTMLDialogElement = document.querySelector("#dialog") as HTMLDialogElement;
+        const dialIcon: HTMLElement = document.querySelector("#dial-icon") as HTMLElement;
+        const dialText: HTMLElement = document.querySelector("#dial-text") as HTMLElement;     
+        
+        dialIcon.innerHTML = `<i class="fas fa-circle-xmark text-[2.3em] text-[#ed333b]"></i>`;
+        dialText.innerHTML = `Failed to add 1 item :(`;
+        
+        console.log(dialIcon.innerHTML);
+        
+        dialog.showModal();
+    }
 }
 
 export default AddItemsPane;
