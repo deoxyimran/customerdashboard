@@ -2,12 +2,10 @@ Customer dashboard concept design using HTML, Tailwind CSS and Typescript.
 
 Build tool used: Vite.
 
-<pre>
-For development: 
-    npm run dev  
-For production: 
-    npm run build
-</pre>
+For development: <br/>
+&emsp; npm run dev <br/> 
+For production: <br/>
+&emsp; npm run build
 
 ![ScreenShot](/screenshots/profile_pane.png) ![ScreenShot](/screenshots/items_pane.png)
 
