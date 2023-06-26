@@ -1,4 +1,5 @@
 import Item from "../utils/Item";
+import userImgUrl from "../../assets/user.png";
 
 class ProfilePane {
     private items: Map<number, Item>;
@@ -22,7 +23,7 @@ class ProfilePane {
                         from-[rgba(245,182,105,0.2)] to-[rgba(245,182,105,0.5)]
                         drop-shadow-md">
                     <div class="flex justify-center mt-[8px] mb-[30px]">
-                        <img src="../assets/user.png" class="w-[70px] h-[70px]">
+                        <img src=${userImgUrl} class="w-[70px] h-[70px]">
                         </img>
                     </div>
                     <div class="flex flex-row ml-[10px] mb-[6px] text-[0.95em] font-semibold
