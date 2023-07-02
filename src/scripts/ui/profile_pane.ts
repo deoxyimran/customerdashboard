@@ -6,12 +6,14 @@ class ProfilePane {
     private name: string;
     private gender: string;
     private profession: string;
-    
+    private userImgUrl: string;
+
     constructor(items: Map<number, Item>) {
         this.name = "nil";
         this.gender = "nil";
         this.profession = "nil";
         this.items = items;
+        this.userImgUrl = userImgUrl;
     }
 
     public getHtml(): string {
@@ -22,9 +24,21 @@ class ProfilePane {
                         mt-[10px] ml-[7px] rounded-md bg-gradient-to-r 
                         from-[rgba(245,182,105,0.2)] to-[rgba(245,182,105,0.5)]
                         drop-shadow-md">
-                    <div class="flex justify-center mt-[8px] mb-[30px]">
-                        <img src=${userImgUrl} class="w-[70px] h-[70px]">
+                    <div class="relative mt-[8px] mb-[30px] rounded-full h-[70px]">
+                        <img src=${this.userImgUrl} class="absolute left-[50%] -translate-x-1/2
+                            z-0 w-[70px] h-[70px] rounded-full">
                         </img>
+                        <div class="absolute left-[50%] -translate-x-1/2 w-[70px] h-[70px] 
+                                rounded-full overflow-clip z-10">
+                            <div id="file-chooser" class="absolute bg-[rgba(245,182,105,1)] 
+                                    bottom-0 inset-x-0 h-[18px] w-[70px] flex 
+                                    justify-center items-center cursor-pointer drop-shadow-2xl">
+                                <i class="fas fa-camera text-[#ffffff]">
+                                </i>
+                            </div>
+                        </div>
+                        <input type="file" class="hidden" accept=".png,.jpg">
+                        </input>
                     </div>
                     <div class="flex flex-row ml-[10px] mb-[6px] text-[0.95em] font-semibold
                             font-['Fira Sans Condensed'] text-[#454444]">
@@ -100,15 +114,32 @@ class ProfilePane {
     }
 
     public attachListeners() {  
+        const input: HTMLInputElement = document.querySelector("input") as HTMLInputElement;
+        const fileChooser: HTMLElement = document.querySelector("#file-chooser") as HTMLElement;
+        
         const nameEditBtnRoot: HTMLElement = document.querySelector("#name-edit-btn-root") as HTMLElement;
         const nameFieldRoot: HTMLElement = document.querySelector("#name-field-root") as HTMLElement;
-        
         const genderEditBtnRoot: HTMLElement = document.querySelector("#gender-edit-btn-root") as HTMLElement;
         const genderFieldRoot: HTMLElement = document.querySelector("#gender-field-root") as HTMLElement;
-
         const professionEditBtnRoot: HTMLElement = document.querySelector("#profession-edit-btn-root") as HTMLElement;
         const professionFieldRoot: HTMLElement = document.querySelector("#profession-field-root") as HTMLElement;
 
+        fileChooser.addEventListener("click", () => {
+            input.click();
+        });
+        input.addEventListener("change", () => {
+            const reader: FileReader = new FileReader();
+            const img: HTMLImageElement = document.querySelector("img") as HTMLImageElement;
+            const file: File | null = input.files![0];
+            reader.addEventListener("load", () => {
+                img.src = reader.result as string;
+                this.userImgUrl = img.src;
+            });
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        });
+        
         nameEditBtnRoot.firstElementChild!.addEventListener("click", () => 
             this.profileEdit(nameEditBtnRoot, nameFieldRoot));
         genderEditBtnRoot.firstElementChild!.addEventListener("click", () => 
@@ -230,6 +261,10 @@ class ProfilePane {
                 break;
         }
         btnRoot.firstElementChild!.addEventListener("click", () => this.profileEdit(btnRoot, fieldRoot));
+    }
+
+    private changeToUserSelectedImg() {
+
     }
 }
 
