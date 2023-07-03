@@ -7,7 +7,6 @@ class ProfilePane {
     private gender: string;
     private profession: string;
     private userImgUrl: string;
-
     constructor(items: Map<number, Item>) {
         this.name = "nil";
         this.gender = "nil";
