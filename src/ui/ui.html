@@ -32,8 +32,19 @@
         </div>
       </div>
     </dialog>
-    <div class="flex items-center justify-center bg-no-repeat bg-cover bg-[url('../assets/bg1.jpg')] w-screen h-screen overflow-auto">
-      <div class="m-auto flex flex-row rounded-md w-[800px] h-[550px] bg-[#ffffff]">
+    <div class="flex flex-col items-center bg-no-repeat bg-cover 
+        bg-[url(../assets/bg1.jpg)] w-screen h-screen overflow-auto">
+      <div class="relative flex flex-col w-full h-[50px]
+          items-center mb-1">
+        <div class="absolute font-['Fira Sans Condensed'] 
+            text-[2em] text-[#ffffff] font-[600] z-20">
+          Dasboard Concept
+        </div>
+        <div class="absolute bg-purple-500 z-10 w-[310px]
+          h-full blur-md opacity-[0.8]">
+        </div>
+      </div>
+      <div class="flex flex-row rounded-md w-[800px] h-[550px] bg-[#ffffff] mt-2">
         <div id="sidebar" class="flex flex-col rounded-l-md w-[200px] 
             bg-gradient-to-b from-[#240fe481] from-40% to-[#240fe4d6]">
           <span class="flex flex-row justify-center items-center mt-[5px] mb-[20px] font-['Poppins']
