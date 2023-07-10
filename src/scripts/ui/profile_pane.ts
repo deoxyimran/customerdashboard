@@ -262,10 +262,6 @@ class ProfilePane {
         }
         btnRoot.firstElementChild!.addEventListener("click", () => this.profileEdit(btnRoot, fieldRoot));
     }
-
-    private changeToUserSelectedImg() {
-
-    }
 }
 
 export default ProfilePane;
