@@ -104,9 +104,14 @@ class ProfilePane {
                         text-white font-['Poppins'] justify-center font-[600]">
                     INVENTORY
                 </div>
-                <div class="shadow-[inset_0px_0px_4px_1px_rgba(0,0,255,0.5)] 
-                        flex-grow overflow-y-scroll overflow-x-hidden">
-                    ${this.invChildren()}
+                <div class="shadow-[inset_0px_0px_4px_1px_rgba(0,0,255,0.2)] 
+                        flex-grow overflow-y-scroll overflow-x-hidden relative bg-gray-100">
+                    ${this.items.size === 0 ? 
+                        `<div class="absolute font-['Poppins'] font-bold text-indigo-400 left-[50%]
+                                top-[50%] -translate-x-1/2 -translate-y-1/2 text-[1.88em]">
+                            No items!
+                        </div>` : `${this.invChildren()}`
+                    }
                     <div class="mt-[5px]"></div>
                 </div>
             </div>  
@@ -204,8 +209,13 @@ class ProfilePane {
                 .querySelector("#inventory-item" + key + " .delete-btn") as HTMLElement;    
             deleteBtn.parentElement!.addEventListener("transitionend", function transitionEnd() {
                 deleteBtn.parentElement!.removeEventListener("transitionend", transitionEnd);
-                deleteBtn.parentElement!.outerHTML = "";
                 self.items.delete(key);
+                deleteBtn.parentElement!.outerHTML = `${self.items.size === 0 ?`
+                    <div class="absolute font-['Poppins'] font-bold text-indigo-400 left-[50%]
+                            top-[50%] -translate-x-1/2 -translate-y-1/2 text-[1.88em]">
+                        No items!
+                    </div>` : ""
+                }`;
                 const itemCount: HTMLElement = document
                     .querySelector("#item-count") as HTMLElement;
                 itemCount.innerHTML = self.items.size + "";
